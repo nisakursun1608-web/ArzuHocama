@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Dear Teacher! 🌸🎂</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffd1dc 0%, #ffe6ee 50%, #ffc0cb 100%);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 15px;
+            position: relative;
+            overflow-x: hidden;
+            color: #1a365d; /* Şık Mavi Tonu */
+        }
+
+        /* Uçuşan Kalpler Arka Planı */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -50px;
+            color: #ffb3c6; /* Açık Pembe Kalpler */
+            font-size: 20px;
+            animation: floatUp 8s linear infinite;
+            opacity: 0.7;
+            text-shadow: 0 0 5px rgba(255, 182, 193, 0.8);
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(360deg) scale(1.3);
+                opacity: 0;
+            }
+        }
+
+        /* Ana Kart Konteynerı */
+        .main-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 182, 193, 0.6);
+            border-radius: 24px;
+            max-width: 680px;
+            width: 100%;
+            padding: 35px 25px;
+            box-shadow: 0 15px 35px rgba(219, 112, 147, 0.25);
+            z-index: 10;
+            position: relative;
+            text-align: center;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #0d47a1; /* Derin Mavi */
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(255, 192, 203, 0.5);
+        }
+
+        .subtitle {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1rem;
+            color: #1976d2; /* Parlak Mavi */
+            margin-bottom: 25px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Müzik Çalar Bölümü */
+        .player-box {
+            background: #e3f2fd; /* Hafif Mavi Dokunuşlu Arka Plan */
+            border: 2px solid #90caf9;
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(25, 118, 210, 0.12);
+        }
+
+        .player-title {
+            font-size: 1.1rem;
+            color: #0d47a1;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        audio {
+            width: 100%;
+            height: 45px;
+            outline: none;
+            border-radius: 25px;
+        }
+
+        .file-input-wrapper {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #1565c0;
+        }
+
+        .file-input-wrapper input {
+            display: none;
+        }
+
+        .custom-file-btn {
+            display: inline-block;
+            background: #1976d2;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .custom-file-btn:hover {
+            background: #0d47a1;
+            transform: scale(1.03);
+        }
+
+        /* Metin Bölümleri */
+        .section-title {
+            font-size: 1.3rem;
+            color: #0d47a1;
+            margin: 25px 0 15px 0;
+            border-bottom: 2px dashed #90caf9;
+            padding-bottom: 8px;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        .letter-content, .song-content {
+            text-align: left;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #1565c0; /* Açık Mavi Metin */
+            background: rgba(255, 255, 255, 0.9);
+            padding: 22px;
+            border-radius: 16px;
+            border-left: 5px solid #1e88e5;
+            margin-bottom: 25px;
+            white-space: pre-line;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .song-content {
+            font-style: italic;
+            background: #f4f8ff;
+            border-left: 5px solid #42a5f5;
+        }
+
+        .ps-text {
+            margin-top: 15px;
+            font-weight: 600;
+            color: #0d47a1;
+            background: #e1f5fe;
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #1976d2;
+            font-weight: 600;
+        }
+
+        @media (max-width: 480px) {
+            .main-card {
+                padding: 25px 15px;
+            }
+            .title {
+                font-size: 2.2rem;
+            }
+            .letter-content, .song-content {
+                font-size: 0.93rem;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Arka Planda Uçuşan Açık Pembe Kalpler -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <div class="main-card">
+        <h1 class="title">Happy Birthday! 🎂</h1>
+        <p class="subtitle">To an Extraordinary & Unforgettable Teacher ✨</p>
+
+        <!-- Müzik Çalar Bölümü -->
+        <div class="player-box">
+            <div class="player-title">
+                🎵 <span>Listen to Your Birthday Song</span>
+            </div>
+            
+            <!-- Ses Dosyası Oynatıcı -->
+            <audio id="audioPlayer" controls autoplay style="width:100%;">
+                <source src="The Light in Our Classroom.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+
+            <div class="file-input-wrapper">
+                <p>Şarkı otomatik başlamadıysa aşağıdaki butona basıp ses dosyasını (`The Light in Our Classroom.mp3`) seçebilirsiniz:</p>
+                <label for="audioFile" class="custom-file-btn">📁 Ses Dosyasını Seç / Yükle</label>
+                <input type="file" id="audioFile" accept="audio/*">
+            </div>
+        </div>
+
+        <!-- Özel Şarkı Sözleri Metni -->
+        <div class="section-title">🎶 Song Lyrics: The Light in Our Classroom</div>
+        <div class="song-content">
+Four long years went passing by like a dream,
+Some hard weekdays, oh so long they would seem.
+When your lesson came, the gloom went away,
+I couldn't wait to hear what you had to say!
+
+Thank you for the patience, the laughter and grace,
+You made our classroom such a magical place.
+If I could repeat high school, I'd do it all through,
+Only if my teacher was someone like you.
+
+Now I have graduated, walking my own road,
+Your new language class has a golden heart in tow.
+Though we have to part and time moves ahead,
+I'll treasure forever every word that you said.
+
+Happy birthday teacher, shine bright every year,
+Your kindness and wisdom will stay with me near... 💖
+        </div>
+
+        <!-- Sizin Gönderdiğiniz Mektup Metni -->
+        <div class="section-title">💌 A Personal Note For You</div>
+        <div class="letter-content">
+My Dear Teacher,
+
+Happy birthday! When I look back at those 4 wonderful years we spent together, you are the reason for both the smile on my face and the sweet sadness in my heart. Even though weekdays some classes felt completely unbearable, I would eagerly wait for your class and look forward to sharing things with you. Thank you from the bottom of my heart for the endless patience you showed us, the caring hand you extended whenever we fell, and every single effort you gave. Enduring our moods and whims was not easy at all, but you managed to make us love even that.
+
+Now I've graduated and I'm heading down my own path, but I will always carry the same wish in a corner of my heart: If I could turn back time and had to go through high school all over again, I would choose to be your student again without a second thought.
+
+Your new language class is so lucky because they are not just getting a fantastic teacher, but a big heart that will touch their lives. I hope your new journey brings you all the beauty you truly deserve. May endless success and happiness be with you in every moment and step of your life.
+
+Happy birthday, and thank you for touching my life... You will always hold a very special place in my heart.
+
+<div class="ps-text">
+P.S. See? Unlike last year when you teased us for forgetting your birthday, I definitely remembered this time! 😄
+</div>
+        </div>
+
+        <footer>
+            Created with ❤️ for the Best Language Teacher Ever!
+        </footer>
+    </div>
+
+    <script>
+        // Rastgele Uçuşan Açık Pembe Kalpler Oluşturma
+        const container = id => document.getElementById(id);
+        const heartsContainer = container('heartsContainer');
+        const heartIcons = ['💖', '💕', '🌸', '💗', '✨', '💓'];
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            heart.style.fontSize = (Math.random() * 15 + 18) + 'px';
+            heartsContainer.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 10000);
+        }
+
+        setInterval(createHeart, 400);
+
+        // Yerel Ses Dosyası Seçildiğinde Oynatma
+        const audioPlayer = document.getElementById('audioPlayer');
+        const audioFileInput = document.getElementById('audioFile');
+
+        audioFileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const fileURL = URL.createObjectURL(file);
+                audioPlayer.src = fileURL;
+                audioPlayer.play();
+            }
+        });
+    </script>
+</body>
+</html>
